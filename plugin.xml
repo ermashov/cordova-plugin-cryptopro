@@ -38,7 +38,6 @@
         <source-file src="src/android/libs/JCP.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCPRequest.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCPRevCheck.jar" target-dir="libs" framework="true"/>
-        <source-file src="src/android/libs/JCPRevCheck.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCPRevTools.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCPxml.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCSP-android.jar" target-dir="libs" framework="true"/>
