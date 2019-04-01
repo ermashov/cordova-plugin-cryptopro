@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-cryptopro"
+        version="1.1.0">
+
+    <name>Snpf CryptoPro</name>
+    <description></description>
+    <author>Alexey Ermashov</author>
+    <keywords>android, cryptopro</keywords>
+    <license>MIT</license>
+
+    <js-module src="www/cryptopro.js" name="Cryptopro">
+        <clobbers target="Cryptopro" />
+    </js-module>
+    <engines>
+        <engine name="cordova-android" version=">=3.0.0"/>
+    </engines>
+
+    <platform name="android">
+        <source-file src="src/ru/cordova/plugins/cryptopro.java" target-dir="src/ru/cordova/plugins/" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Country" >
+                <param name="android-package" value="ru.eaasoft.cordova-plugin-cryptopro"/>
+            </feature>
+        </config-file>
+    </platform>
+</plugin>
