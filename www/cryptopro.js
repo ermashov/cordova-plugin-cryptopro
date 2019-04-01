@@ -15,3 +15,5 @@ if (!window.plugins.cryptopro) {
 if (module.exports) {
     module.exports = Cryptopro;
 }
+
+
