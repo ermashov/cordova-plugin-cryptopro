@@ -17,3 +17,10 @@ if (module.exports) {
 }
 
 
+/*
+window.plugins.cryptopro.getCertificates(function(cert){
+            alert(cert);
+        },function(error){
+            alert(error);
+        })
+ */
