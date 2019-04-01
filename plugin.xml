@@ -29,7 +29,7 @@
         <framework src="src/android/cryptopro.gradle" custom="true" type="gradleReference" />
 
         <source-file src="src/android/libs/AdES-core.jar" target-dir="libs" framework="true"/>
-        <!--<source-file src="src/android/libs/ASN1P.jar" target-dir="libs" framework="true"/>
+        <source-file src="src/android/libs/ASN1P.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/asn1rt.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/bcpkix-jdk15on-1.50.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/bcprov-jdk15on-1.50.jar" target-dir="libs" framework="true"/>
@@ -43,6 +43,6 @@
         <source-file src="src/android/libs/JCPxml.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JCSP-android.jar" target-dir="libs" framework="true"/>
         <source-file src="src/android/libs/JInitCSP.jar" target-dir="libs" framework="true"/>
-        <source-file src="src/android/libs/xmlsec-1.4.4.jar" target-dir="libs" framework="true"/>-->
+        <source-file src="src/android/libs/xmlsec-1.4.4.jar" target-dir="libs" framework="true"/>
     </platform>
 </plugin>
