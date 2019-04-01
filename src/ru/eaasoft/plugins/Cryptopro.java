@@ -1,4 +1,4 @@
-package ru.eaasoft.cordova-plugin-cryptopro;
+package ru.eaasoft.plugins.Cryptopro;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -11,15 +11,19 @@ public class Cryptopro extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         if (action.equals("getCertificates")) {
-            String message = args.getString(0);
-            this.getCertificates(message, callbackContext);
+            this.getCertificates(callbackContext);
             return true;
 
 
         }else if(action.equals("getCertificates")){
-            String alias = args.getString(0);
-            this.singCades(alias, callbackContext);
-            return true;
+            try {
+                String alias = args.getString(0);
+                this.singCades(alias, callbackContext);
+                return true;
+            }catch (Exception e){
+                return false;
+            }
+
         }
         return false;
     }
@@ -28,10 +32,10 @@ public class Cryptopro extends CordovaPlugin {
 
         String jsonCertificates = "certificate";
 
-        if(jsonCertificates.length <= 0){
+        if(jsonCertificates.length() <= 0){
             callbackContext.error("not found");
         }else{
-            CallbackContext.success(jsonCertificates);
+            callbackContext.success(jsonCertificates);
         }
 
     }
