@@ -19,7 +19,7 @@
     </engines>
 
     <platform name="android">
-        <source-file src="src/ru/eaasoft/plugins/Cryptopro.java" target-dir="src/ru/eaasoft/plugins/" />
+        <source-file src="src/ru/eaasoft/plugins/CryptoproPlugin.java" target-dir="src/ru/eaasoft/plugins/" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Cryptopro" >
                 <param name="android-package" value="ru.eaasoft.plugins.CryptoproPlugin" />
