@@ -12,11 +12,9 @@ import ru.CryptoPro.JCSP.support.BKSTrustStore;
 import ru.CryptoPro.ssl.util.cpSSLConfig;
 import ru.cprocsp.ACSP.tools.common.Constants;
 
-import ru.CryptoPro.AdES.AdESConfig;
 import ru.CryptoPro.AdES.tools.AlgorithmUtility;
 import ru.CryptoPro.CAdES.CAdESConfig;
 import ru.CryptoPro.JCP.JCP;
-import ru.CryptoPro.JCPxml.XmlInit;
 
 import ru.CryptoPro.JCP.ASN.CertificateExtensions.GeneralName;
 import ru.CryptoPro.JCP.ASN.CertificateExtensions.GeneralNames;
@@ -24,119 +22,28 @@ import ru.CryptoPro.JCP.ASN.CryptographicMessageSyntax.*;
 import ru.CryptoPro.JCP.ASN.PKIX1Explicit88.*;
 
 import ru.CryptoPro.JCP.params.OID;
-import ru.CryptoPro.JCP.tools.Array;
-
-import ru.CryptoPro.JCSP.JCSP;
-
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.util.Arrays;
 import java.util.Calendar;
 
 import org.json.JSONObject;
-
-import ru.CryptoPro.JCSP.CSPConfig;
-import ru.CryptoPro.JCSP.JCSP;
-import ru.CryptoPro.JCSP.support.BKSTrustStore;
 
 import java.security.Security;
 import java.io.File;
 
 import java.security.KeyStore;
-import java.security.Provider;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
-import android.support.v4.app.Fragment;
-import android.os.AsyncTask;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import java.security.Signature;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.style.BCStyle;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import java.security.PrivateKey;
-
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
-
-import ru.CryptoPro.AdES.AdESConfig;
-import ru.CryptoPro.AdES.tools.AlgorithmUtility;
-import ru.CryptoPro.CAdES.CAdESConfig;
-import ru.CryptoPro.JCP.JCP;
-import ru.CryptoPro.JCPxml.XmlInit;
-
-import ru.CryptoPro.JCP.ASN.CertificateExtensions.GeneralName;
-import ru.CryptoPro.JCP.ASN.CertificateExtensions.GeneralNames;
-import ru.CryptoPro.JCP.ASN.CryptographicMessageSyntax.*;
-import ru.CryptoPro.JCP.ASN.PKIX1Explicit88.*;
-
-import ru.CryptoPro.JCP.params.OID;
-import ru.CryptoPro.JCP.tools.Array;
-
-import ru.CryptoPro.JCSP.JCSP;
-
-
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.security.DigestInputStream;
-import java.security.MessageDigest;
-import java.security.PrivateKey;
-import java.security.Signature;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Calendar;
-
-import org.json.JSONObject;
-
-import ru.CryptoPro.JCSP.CSPConfig;
-import ru.CryptoPro.JCSP.JCSP;
-import ru.CryptoPro.JCSP.support.BKSTrustStore;
 
 import ru.CryptoPro.reprov.RevCheck;
-
-import ru.CryptoPro.ssl.util.cpSSLConfig;
-import ru.cprocsp.ACSP.tools.common.Constants;
 import com.objsys.asn1j.runtime.Asn1BerDecodeBuffer;
 import com.objsys.asn1j.runtime.Asn1BerEncodeBuffer;
 import com.objsys.asn1j.runtime.Asn1Null;
@@ -144,39 +51,7 @@ import com.objsys.asn1j.runtime.Asn1ObjectIdentifier;
 import com.objsys.asn1j.runtime.Asn1OctetString;
 import com.objsys.asn1j.runtime.Asn1Type;
 import com.objsys.asn1j.runtime.Asn1UTCTime;
-
-import java.io.File;
-import java.security.Security;
-
-import java.security.KeyStore;
-import java.security.Provider;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import android.support.v4.app.Fragment;
-import android.os.AsyncTask;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import java.security.Signature;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.BCStyle;
-import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import java.security.PrivateKey;
-
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-
 import ru.CryptoPro.JCP.KeyStore.JCPPrivateKeyEntry;
-
-import ru.CryptoPro.reprov.RevCheck;
-
-
 import ru.CryptoPro.JCP.tools.Encoder;
 import ru.CryptoPro.JCP.tools.Decoder;
 
@@ -197,7 +72,7 @@ public class CryptoproPlugin extends CordovaPlugin {
         Context context = this.cordova.getActivity().getApplicationContext();
 
         if (!initCSPProviders(context)) {
-            Log.i(Constants.APP_LOGGER_TAG, "Couldn't initialize CSP.");
+            callbackContext.error("Couldn't initialize CSP.");
             return false;
         } // if
 
@@ -221,6 +96,7 @@ public class CryptoproPlugin extends CordovaPlugin {
                 this.singCades(keyStoreType, alias, pin, data, detached, callbackContext);
                 return true;
             }catch (Exception e){
+                callbackContext.error(e.getMessage());
                 return false;
             }
 
@@ -284,42 +160,15 @@ public class CryptoproPlugin extends CordovaPlugin {
     )
     {
 
-        /*
-        try {
-            String data = "Привет";
-
-            String sigCades = singCades(
-                    "Aktiv Rutoken ECP BT 1",
-                    "29824913@2019-03-29-АО НПФ СОГЛАСИЕ",
-                    "1234567890",
-                    toBase64(data.getBytes()),
-                    true
-            );
-
-            int maxLogSize = 2500;
-            for(int i = 0; i <= sigCades.length() / maxLogSize; i++) {
-                int start = i * maxLogSize;
-                int end = (i+1) * maxLogSize;
-                end = end > sigCades.length() ? sigCades.length() : end;
-                Log.v("Sign", sigCades.substring(start, end));
-            }
-
-        } catch (Exception e) {
-            Log.e(Constants.APP_LOGGER_TAG, e.getMessage());
-
-        }*/
-
         try {
 
-            String signature = "";
+            String signature;
 
             byte[] data = fromBase64(inData);
 
             if(inKeyStoreType.length() <= 0){
                 inKeyStoreType = KeyStoreType;
             }
-
-
 
             CertificateInfo cInfo = load(
                     true,
@@ -796,7 +645,7 @@ public class CryptoproPlugin extends CordovaPlugin {
 
         // Инициализация XML DSig (хеш, подпись).
 
-        XmlInit.init();
+        //XmlInit.init();
 
         // Параметры для Java TLS и CAdES API.
 
@@ -816,7 +665,7 @@ public class CryptoproPlugin extends CordovaPlugin {
                 BKSTrustStore.STORAGE_DIRECTORY + File.separator + BKSTrustStore.STORAGE_FILE_TRUST;
 
         final String trustStorePassword = String.valueOf(BKSTrustStore.STORAGE_PASSWORD);
-        Log.d(Constants.APP_LOGGER_TAG, "Default trust store: " + trustStorePath);
+        //Log.d(Constants.APP_LOGGER_TAG, "Default trust store: " + trustStorePath);
 
         System.setProperty("javax.net.ssl.trustStoreType", BKSTrustStore.STORAGE_TYPE);
         System.setProperty("javax.net.ssl.trustStore", trustStorePath);
@@ -838,18 +687,6 @@ public class CryptoproPlugin extends CordovaPlugin {
     private byte[] fromBase64(String data) throws Exception{
         Decoder decoder = new Decoder();
         return decoder.decodeBuffer(data);
-    }
-
-    public String[] jsonArrayToStringArray(JSONArray jsonArray) {
-        int arraySize = jsonArray.length();
-        String[] stringArray = new String[arraySize];
-        for(int i=0; i<arraySize; i++) {
-            try {
-                stringArray[i] = (String) jsonArray.get(i);
-            }catch (Exception e){ }
-
-        }
-        return stringArray;
     }
 
     /**
