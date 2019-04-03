@@ -1,5 +1,3 @@
-apply plugin: 'ru.eaasoft.plugins'
-
 android {
     compileSdkVersion 24
     defaultConfig {
